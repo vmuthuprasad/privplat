@@ -1,0 +1,5 @@
+
+kubia/src/node_modules/*
+kubia/src/package-lock.json
+kubia/kubia-deploy-old.yml
+kubia/image_history

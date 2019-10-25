@@ -1,0 +1,45 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: kubia-container
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kubia
+      tier: ui
+  template:
+    metadata:
+      labels:
+        app: kubia
+        tier: ui
+    spec:
+      containers:
+      - name: kubia-container
+        image: docker-hub.private.com:5000/kubia:latest
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        envFrom:
+          - configMapRef:
+              name: postgres-config
+      nodeSelector:
+        nodetype: database
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: kubia-svc
+  labels:
+    app: kubia
+    tier: ui
+spec:
+  selector:
+    app: kubia
+    tier: ui
+  type: NodePort
+  ports:
+    - name: my-kubia-port
+      port: 8080
+      targetPort: 8080
+      nodePort: 30008

@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: kubia-container
-        image: docker-hub.private.com:5000/kubia:latest
+        image: docker-hub.private.com:5000/kubia:latest #change server name
         ports:
         - containerPort: 8080
           protocol: TCP

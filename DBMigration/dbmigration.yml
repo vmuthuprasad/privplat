@@ -1,0 +1,13 @@
+apiVersion: batch/v1
+kind: job
+metadata:
+  name: database-migration-1.0
+spec:
+  ttlSecondsAfterFinished: 45
+  template:
+    spec:
+      containers:
+        - name:  database-migration-1.0
+          image: docker-hub.private.com:5000/dbmigration:latest #change server name
+          command: ["python",  "./dbmigration.py"]
+      restartPolicy: Never

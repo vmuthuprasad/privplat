@@ -2,8 +2,8 @@ import psycopg2
 import os
 
 def migrate():
-    hostname=os.environ['POSTGRES_SERVICE_HOST']
-    port=os.environ['POSTGRES_SERVICE_PORT']
+    hostname=os.environ['POSTGRES_HOST']
+    port=os.environ['POSTGRES_PORT']
     database=os.environ['POSTGRES_DB']
     username=os.environ['POSTGRES_USER']
     password=os.environ['POSTGRES_PASSWORD']

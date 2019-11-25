@@ -3,3 +3,7 @@ kubia/src/node_modules/*
 kubia/src/package-lock.json
 kubia/kubia-deploy-old.yml
 kubia/image_history
+kubia/src/client/.editorconfig
+kubia/src/client/package-lock.json
+kubia/src/server/node_modules/
+kubia/src/server/package-lock.json
